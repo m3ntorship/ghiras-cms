@@ -1,9 +1,0 @@
-{
-  "routes": [
-    {
-      "method": "GET",
-      "path": "/.well-known/acme-challenge/pgh9jLpXs_JXWSRAWYl-wVVAv87urElk38PagLka28s",
-      "handler": "tls.challenge"
-    }
-  ]
-}

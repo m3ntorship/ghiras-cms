@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/.well-known/acme-challenge/DckwYY0DorF3on2BXb34U0oUsp-cDXd-nFRfniUidAQ",
+      "handler": "www.challenge"
+    }
+  ]
+}
