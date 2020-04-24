@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/.well-known/acme-challenge/ik3LKWZrrbtNyptIurDNJ6DtU1IvhOrqJcAGotIlejM",
-      "handler": "www.challenge"
+      "handler": "charity.challenge"
     }
   ]
 }
