@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/.well-known/acme-challenge/ik3LKWZrrbtNyptIurDNJ6DtU1IvhOrqJcAGotIlejM",
+      "path": "/.well-known/acme-challenge/bIb_i-DSNRF-vT2LuFYvLw5rMda7YscxAKlFYksfcU4",
       "handler": "charity.challenge"
     }
   ]
