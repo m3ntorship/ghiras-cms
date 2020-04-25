@@ -9,6 +9,7 @@
     "enabled": false
   },
   "admin": {
-    "autoOpen": false
+    "autoOpen": false,
+    "path": "${process.env.STRAPI_ADMIN_PATH || '/admin'}"
   }
 }
