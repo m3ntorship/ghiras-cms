@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "how_we_works",
+  "info": {
+    "name": "How We Work"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title_primary": {
+      "type": "string"
+    },
+    "title_complementary": {
+      "type": "string"
+    },
+    "Cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.card"
+    }
+  }
+}
