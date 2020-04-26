@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/speaking-numbers",
+      "handler": "speaking-number.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/speaking-numbers/count",
+      "handler": "speaking-number.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/speaking-numbers/:id",
+      "handler": "speaking-number.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/speaking-numbers",
+      "handler": "speaking-number.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/speaking-numbers/:id",
+      "handler": "speaking-number.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/speaking-numbers/:id",
+      "handler": "speaking-number.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
