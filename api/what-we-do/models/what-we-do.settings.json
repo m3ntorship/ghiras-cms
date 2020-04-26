@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "what_we_dos",
+  "info": {
+    "name": "What-we-do"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title_primary": {
+      "type": "string"
+    },
+    "title_complementary": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "how_we_work_cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.card"
+    }
+  }
+}
