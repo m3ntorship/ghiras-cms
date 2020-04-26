@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/how-we-work",
+      "handler": "how-we-work.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/how-we-work",
+      "handler": "how-we-work.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/how-we-work",
+      "handler": "how-we-work.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
