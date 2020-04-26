@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "speaking_numbers",
+  "info": {
+    "name": "speaking-number"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "number": {
+      "type": "integer"
+    }
+  }
+}
