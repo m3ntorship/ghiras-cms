@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/donation-banners",
+      "handler": "donation-banner.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/donation-banners/count",
+      "handler": "donation-banner.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/donation-banners/:id",
+      "handler": "donation-banner.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/donation-banners",
+      "handler": "donation-banner.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/donation-banners/:id",
+      "handler": "donation-banner.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/donation-banners/:id",
+      "handler": "donation-banner.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

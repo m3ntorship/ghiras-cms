@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "donation_banners",
+  "info": {
+    "name": "donation-banner"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "paragraph": {
+      "type": "string"
+    },
+    "spicial": {
+      "type": "string"
+    },
+    "click_event": {
+      "type": "string"
+    },
+    "event_link": {
+      "type": "string"
+    },
+    "section_icon": {
+      "type": "string"
+    }
+  }
+}
