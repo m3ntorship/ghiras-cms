@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "socialmedias",
+  "info": {
+    "name": "Socialmedia"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "fontawesome_icons": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
