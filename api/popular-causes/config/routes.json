@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/popular-causes",
+      "handler": "popular-causes.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/popular-causes",
+      "handler": "popular-causes.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/popular-causes",
+      "handler": "popular-causes.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
