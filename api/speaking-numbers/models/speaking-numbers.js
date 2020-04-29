@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `speaking-number` model.
+ * Lifecycle callbacks for the `speaking-numbers` model.
  */
 
 module.exports = {
