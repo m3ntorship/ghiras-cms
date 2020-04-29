@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_general_welcome_section_actions",
+  "info": {
+    "name": "Welcome section Action",
+    "icon": "list"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
