@@ -30,6 +30,9 @@
     },
     "newsletter_description": {
       "type": "string"
+    },
+    "articles": {
+      "collection": "article"
     }
   }
 }
