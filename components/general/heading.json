@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_general_headings",
+  "info": {
+    "name": "Heading",
+    "icon": "heading"
+  },
+  "options": {},
+  "attributes": {
+    "heading_primary": {
+      "type": "string",
+      "required": true
+    },
+    "heading_secondary": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

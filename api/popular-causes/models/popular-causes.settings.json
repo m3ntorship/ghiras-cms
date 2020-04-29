@@ -9,16 +9,15 @@
     "timestamps": true
   },
   "attributes": {
-    "Heading_primary": {
-      "type": "string"
-    },
-    "Heading_complementary": {
-      "type": "string"
-    },
     "Cause": {
       "type": "component",
       "repeatable": true,
       "component": "general.cause"
+    },
+    "causes_heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.heading"
     }
   }
 }
