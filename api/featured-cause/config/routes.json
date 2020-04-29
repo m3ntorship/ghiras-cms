@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/featured-cause",
+      "handler": "featured-cause.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/featured-cause",
+      "handler": "featured-cause.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/featured-cause",
+      "handler": "featured-cause.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

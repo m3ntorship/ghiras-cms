@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "featured_causes",
+  "info": {
+    "name": "Featured Cause"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "featured_cause": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.cause"
+    }
+  }
+}
