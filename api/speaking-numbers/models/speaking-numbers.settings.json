@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "speaking_numbers",
+  "info": {
+    "name": "speaking_numbers"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image_background": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "speaking_numbers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.speaking-number"
+    }
+  }
+}

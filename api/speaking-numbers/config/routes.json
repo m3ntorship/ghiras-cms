@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/speaking-numbers",
+      "handler": "speaking-numbers.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/speaking-numbers",
+      "handler": "speaking-numbers.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/speaking-numbers",
+      "handler": "speaking-numbers.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
