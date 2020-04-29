@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "welcome_sections",
+  "info": {
+    "name": "Welcome section"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.heading"
+    },
+    "description": {
+      "type": "string"
+    },
+    "WelcomeActions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.welcome-section-action"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.link"
+    }
+  }
+}

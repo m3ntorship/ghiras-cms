@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/welcome-section",
+      "handler": "welcome-section.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/welcome-section",
+      "handler": "welcome-section.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/welcome-section",
+      "handler": "welcome-section.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
