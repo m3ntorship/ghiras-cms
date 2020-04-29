@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "sponsers",
+  "info": {
+    "name": "Sponsers"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "sponser": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}
