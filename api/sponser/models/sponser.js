@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `sponsers` model.
+ * Lifecycle callbacks for the `sponser` model.
  */
 
 module.exports = {

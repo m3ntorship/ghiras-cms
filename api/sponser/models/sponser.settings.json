@@ -1,15 +1,15 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "sponsers",
   "info": {
-    "name": "Sponsers"
+    "name": "Sponser"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "sponser": {
+    "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -19,6 +19,9 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "name": {
+      "type": "string"
     }
   }
 }
