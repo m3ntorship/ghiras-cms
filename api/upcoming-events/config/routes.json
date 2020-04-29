@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/upcoming-events",
+      "handler": "upcoming-events.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/upcoming-events",
+      "handler": "upcoming-events.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/upcoming-events",
+      "handler": "upcoming-events.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

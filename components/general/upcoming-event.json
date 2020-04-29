@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_general_upcoming_events",
+  "info": {
+    "name": "Upcoming Event",
+    "icon": "qrcode"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "date": {
+      "type": "date"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "title": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "upcoming_events",
+  "info": {
+    "name": "Upcoming Events"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Heading": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.heading"
+    },
+    "description": {
+      "type": "string"
+    },
+    "upcoming_events": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.upcoming-event"
+    }
+  }
+}
