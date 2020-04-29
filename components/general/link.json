@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_general_links",
+  "info": {
+    "name": "Link",
+    "icon": "share-square"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "sort": {
+      "type": "integer"
+    }
+  }
+}
