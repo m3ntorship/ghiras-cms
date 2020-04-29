@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_general_speaking_numbers",
+  "info": {
+    "name": "speaking_number",
+    "icon": "sort-numeric-up"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    }
+  }
+}

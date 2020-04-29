@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_general_causes",
+  "info": {
+    "name": "Cause",
+    "icon": "allergies"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "raised": {
+      "type": "integer"
+    },
+    "Goal": {
+      "type": "integer"
+    },
+    "action_button_text": {
+      "type": "string"
+    },
+    "action_button_url": {
+      "type": "string"
+    }
+  }
+}

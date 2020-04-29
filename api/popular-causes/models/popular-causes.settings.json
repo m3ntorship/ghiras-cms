@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "popular_causes",
+  "info": {
+    "name": "popular-causes"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Cause": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.cause"
+    },
+    "causes_heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.heading"
+    }
+  }
+}
