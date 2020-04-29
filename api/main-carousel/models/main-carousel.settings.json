@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "main_carousels",
+  "info": {
+    "name": "Main Carousel"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "Link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.link"
+    },
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}
