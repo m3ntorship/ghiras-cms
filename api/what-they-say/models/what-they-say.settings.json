@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "what_they_says",
+  "info": {
+    "name": "What they say"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.heading"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "background": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "testimonials": {
+      "collection": "testimonial"
+    }
+  }
+}

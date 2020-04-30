@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/what-they-say",
+      "handler": "what-they-say.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/what-they-say",
+      "handler": "what-they-say.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/what-they-say",
+      "handler": "what-they-say.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
