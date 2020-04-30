@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/news-and-articles",
+      "handler": "news-and-articles.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/news-and-articles",
+      "handler": "news-and-articles.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/news-and-articles",
+      "handler": "news-and-articles.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
