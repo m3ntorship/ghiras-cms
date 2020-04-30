@@ -12,9 +12,6 @@
     "description": {
       "type": "string"
     },
-    "image": {
-      "type": "string"
-    },
     "date": {
       "type": "datetime"
     },
@@ -25,6 +22,17 @@
       "type": "component",
       "repeatable": false,
       "component": "general.link"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }
