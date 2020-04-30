@@ -9,15 +9,13 @@
     "timestamps": true
   },
   "attributes": {
-    "Cause": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.cause"
-    },
     "causes_heading": {
       "type": "component",
       "repeatable": false,
       "component": "general.heading"
+    },
+    "causes": {
+      "collection": "cause"
     }
   }
 }

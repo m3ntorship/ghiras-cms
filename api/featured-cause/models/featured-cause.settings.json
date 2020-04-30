@@ -9,10 +9,8 @@
     "timestamps": true
   },
   "attributes": {
-    "featured_cause": {
-      "type": "component",
-      "repeatable": false,
-      "component": "general.cause"
+    "cause": {
+      "model": "cause"
     }
   }
 }
