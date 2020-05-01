@@ -36,6 +36,12 @@
     },
     "Disclaimer": {
       "type": "string"
+    },
+    "news_title": {
+      "type": "string"
+    },
+    "links_title": {
+      "type": "string"
     }
   }
 }
