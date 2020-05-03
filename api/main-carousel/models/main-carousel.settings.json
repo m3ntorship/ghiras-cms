@@ -12,29 +12,33 @@
     "link": {
       "type": "component",
       "repeatable": false,
-      "component": "general.link"
+      "component": "general.link",
+      "required": true
     },
     "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
         "files",
+        "images",
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "heading": {
       "type": "component",
       "repeatable": false,
-      "component": "general.heading"
+      "component": "general.heading",
+      "required": true
     },
     "intro": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "show_leaves": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     }
   }
 }
