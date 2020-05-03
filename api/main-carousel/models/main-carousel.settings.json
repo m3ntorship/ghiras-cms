@@ -9,15 +9,12 @@
     "timestamps": true
   },
   "attributes": {
-    "content": {
-      "type": "richtext"
-    },
-    "Link": {
+    "link": {
       "type": "component",
       "repeatable": false,
       "component": "general.link"
     },
-    "Image": {
+    "image": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -27,6 +24,17 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.heading"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "show_leaves": {
+      "type": "boolean"
     }
   }
 }
