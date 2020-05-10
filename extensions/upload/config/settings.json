@@ -1,11 +1,7 @@
 {
-  "provider": "aws-s3",
+  "provider": "dropbox-m3ntorship",
   "providerOptions": {
-    "accessKeyId": "${process.env.AWS_ACCESS_KEY_ID}",
-    "secretAccessKey": "${process.env.AWS_SECRET_ACCESS_KEY}",
-    "region": "${process.env.AWS_BUCKET_REGION}",
-    "params": {
-      "Bucket": "${process.env.AWS_BUCKET}"
+    "accessToken": "${process.env.DROPBOX_TOKEN}",
+    "folder": "${process.env.DROPBOX_FOLDER}"
     }
-  }
 }
