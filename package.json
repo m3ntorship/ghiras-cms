@@ -5,6 +5,10 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
+    "develop:docker": "docker-compose up -d",
+    "develop:docker:clean": "docker-compose down --rmi=all",
+    "develop:docker:stop": "docker-compose stop",
+    "predevelop": "yarn build",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"

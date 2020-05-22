@@ -1,0 +1,14 @@
+FROM node:12.16.3-alpine3.11
+
+# install linux commands 
+RUN apk add tree
+
+# create application directory
+RUN mkdir -p /charity-cms
+WORKDIR /charity-cms
+
+# copy application files
+COPY package.json yarn.lock ./
+
+# install dependencies
+RUN yarn
