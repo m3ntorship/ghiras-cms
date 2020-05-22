@@ -8,6 +8,8 @@
     "develop:docker": "docker-compose up -d",
     "develop:docker:clean": "docker-compose down --rmi=all",
     "develop:docker:stop": "docker-compose stop",
+    "develop:docker:restart": "docker rm -f charity-cms_charity-cms_1",
+    "postdevelop:docker:restart": "yarn develop:docker",
     "predevelop": "yarn build",
     "start": "strapi start",
     "build": "strapi build",
