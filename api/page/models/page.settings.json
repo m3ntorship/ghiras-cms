@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "name": "page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "Banner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.inner-page-banner"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.link"
+    },
+    "show_in_navigation": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "published": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
