@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_general_inner_page_secondary_banners",
+  "info": {
+    "name": "InnerPageSecondaryBanner",
+    "icon": "address-book"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "banner_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.link"
+    }
+  }
+}
