@@ -32,6 +32,11 @@
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "secondary_banner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.inner-page-secondary-banner"
     }
   }
 }
