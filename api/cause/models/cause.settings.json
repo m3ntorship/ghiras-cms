@@ -40,6 +40,11 @@
     },
     "raised": {
       "type": "integer"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
