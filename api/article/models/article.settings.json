@@ -56,6 +56,11 @@
     "author": {
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "show_in_home": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
