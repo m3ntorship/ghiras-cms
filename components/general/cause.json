@@ -9,11 +9,7 @@
     "image": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
       "required": false
     },
@@ -34,6 +30,11 @@
     },
     "action_button_url": {
       "type": "string"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
