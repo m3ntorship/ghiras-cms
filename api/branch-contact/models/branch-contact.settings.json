@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "branch_contacts",
+  "info": {
+    "name": "Branch Contact"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "location": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.contact-item",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.contact-item"
+    },
+    "phone": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.contact-item"
+    }
+  }
+}
