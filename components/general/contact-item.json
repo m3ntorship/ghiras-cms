@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_general_contact_items",
+  "info": {
+    "name": "contact-item",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "info": {
+      "type": "string",
+      "required": true
+    },
+    "info_title": {
+      "type": "string"
+    }
+  }
+}
