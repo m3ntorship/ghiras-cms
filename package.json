@@ -19,6 +19,7 @@
   "dependencies": {
     "dropbox": "^4.0.30",
     "isomorphic-fetch": "^2.2.1",
+    "mongodb": "^3.5.9",
     "strapi": "3.0.0-beta.20",
     "strapi-admin": "3.0.0-beta.20",
     "strapi-connector-mongoose": "3.0.0-beta.20",
