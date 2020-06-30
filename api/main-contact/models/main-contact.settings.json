@@ -29,6 +29,10 @@
     "show_in_navbar": {
       "type": "boolean",
       "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": false
     }
   }
 }
