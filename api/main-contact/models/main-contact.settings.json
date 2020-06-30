@@ -25,6 +25,10 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "show_in_navbar": {
+      "type": "boolean",
+      "required": true
     }
   }
 }
