@@ -1,11 +1,9 @@
 {
-  "provider": "aws-s3",
+  "provider": "minio",
   "providerOptions": {
-    "accessKeyId": "${process.env.AWS_ACCESS_KEY_ID}",
-    "secretAccessKey": "${process.env.AWS_SECRET_ACCESS_KEY}",
-    "region": "${process.env.AWS_BUCKET_REGION}",
-    "params": {
-      "Bucket": "${process.env.AWS_BUCKET}"
-    }
+    "public": "${process.env.MINIO_PUBLIC_KEY}",
+    "private": "${process.env.MINIO_PRIVATE_KEY}",
+    "endpoint": "${process.env.MINIO_URL}",
+    "bucket": "${process.env.MINIO_BUCKET}"
   }
 }
