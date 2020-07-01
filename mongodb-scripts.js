@@ -1,6 +1,6 @@
 const {MongoClient, ObjectId} = require("mongodb");
 const mongoUrl =
-  "mongodb+srv://m3ntorship-dev:kmJDK81m4Bl3Ysh3@charity-ros2p.mongodb.net";
+  "mongodb+srv://<USERNAME>:<PASSWORD>@charity-ros2p.mongodb.net";
 
 
   const updateFileUrl = dCollection => ( doc) => {
