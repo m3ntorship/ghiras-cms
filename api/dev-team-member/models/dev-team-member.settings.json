@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dev_team_members",
+  "info": {
+    "name": "Dev team member"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "member_img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "member_name": {
+      "type": "string"
+    },
+    "member_role": {
+      "type": "string"
+    },
+    "social_icons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.social-icon"
+    }
+  }
+}
