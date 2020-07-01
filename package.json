@@ -19,6 +19,7 @@
   "dependencies": {
     "dropbox": "^4.0.30",
     "isomorphic-fetch": "^2.2.1",
+    "mongodb": "^3.5.9",
     "strapi": "3.0.0-beta.20",
     "strapi-admin": "3.0.0-beta.20",
     "strapi-connector-mongoose": "3.0.0-beta.20",
@@ -27,8 +28,7 @@
     "strapi-plugin-email": "3.0.0-beta.20",
     "strapi-plugin-upload": "3.0.0-beta.20",
     "strapi-plugin-users-permissions": "3.0.0-beta.20",
-    "strapi-provider-upload-aws-s3": "^3.0.0-beta.20",
-    "strapi-provider-upload-dropbox-m3ntorship": "^0.0.1",
+    "strapi-provider-upload-minio": "file:providers/strapi-upload-minio",
     "strapi-utils": "3.0.0-beta.20"
   },
   "author": {
