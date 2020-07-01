@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_general_social_icons",
+  "info": {
+    "name": "Social Icon",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "fa_icon": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
