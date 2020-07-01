@@ -1,6 +1,6 @@
 const {MongoClient, ObjectId} = require("mongodb");
 const mongoUrl =
-  "mongodb+srv://m3ntorship-dev:kmJDK81m4Bl3Ysh3@charity-ros2p.mongodb.net";
+  "mongodb+srv://<USERNAME>:<PASSWORD>@charity-ros2p.mongodb.net";
 
 
   const updateFileUrl = dCollection => ( doc) => {
@@ -19,7 +19,7 @@ async function main() {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    db = client.db("charity-dev-ar");
+    db = client.db("charity-dev");
     let dCollection = db.collection("upload_file");
      let result = await dCollection.find({url: /charity-cms-dev\.s3\.eu-central-1\.amazonaws\.com/i});
 
