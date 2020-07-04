@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "dev_team_members",
+  "collectionName": "volunteers",
   "info": {
-    "name": "Dev team member"
+    "name": "volunteer"
   },
   "options": {
     "increments": true,
@@ -10,7 +10,7 @@
   },
   "attributes": {
     "member_img": {
-      "model": "file",
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "images",
@@ -18,7 +18,7 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": true
+      "required": false
     },
     "member_name": {
       "type": "string"
