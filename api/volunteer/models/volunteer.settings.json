@@ -32,8 +32,7 @@
       "component": "general.social-icon"
     },
     "priority": {
-      "type": "integer",
-      "required": true
+      "type": "integer"
     }
   }
 }
