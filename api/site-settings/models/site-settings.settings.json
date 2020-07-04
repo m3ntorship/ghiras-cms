@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_settings",
+  "info": {
+    "name": "site settings"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "enable_english_site": {
+      "type": "boolean"
+    },
+    "comming_soon_second_message": {
+      "type": "string"
+    },
+    "comming_soon_third_message": {
+      "type": "string"
+    },
+    "comming_soon_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "comming_soon_main_message": {
+      "type": "string"
+    }
+  }
+}
