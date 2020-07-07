@@ -9,6 +9,7 @@ WORKDIR /charity-cms
 
 # copy application files
 COPY package.json yarn.lock ./
+COPY providers ./providers
 
 # install dependencies
 RUN yarn
