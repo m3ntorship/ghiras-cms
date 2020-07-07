@@ -30,6 +30,11 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "isShown": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }
