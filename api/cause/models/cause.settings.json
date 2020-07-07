@@ -30,7 +30,11 @@
     "image": {
       "model": "file",
       "via": "related",
-      "allowedTypes": ["files", "images", "videos"],
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
       "plugin": "upload",
       "required": false
     },
@@ -41,6 +45,9 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "is_home": {
+      "type": "boolean"
     }
   }
 }
