@@ -45,17 +45,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      # install kubectl
+      - uses: actions/checkout@v1
       - uses: azure/setup-kubectl@v1
-
-      # configure kubectl
       - name: Kubectl configuration
         shell: bash
         run: |
           mkdir -p ~/.kube
           echo ${{ secrets.KUBE_CONFIG }} | base64 -d -i > ~/.kube/config
-
-      # install moustache
       - name: install moustache
         run: |
           curl -sSL https://git.io/get-mo -o mo
@@ -83,17 +79,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      # install kubectl
+      - uses: actions/checkout@v1
       - uses: azure/setup-kubectl@v1
-
-      # configure kubectl
       - name: Kubectl configuration
         shell: bash
         run: |
           mkdir -p ~/.kube
           echo ${{ secrets.KUBE_CONFIG }} | base64 -d -i > ~/.kube/config
-
-      # install moustache
       - name: install moustache
         run: |
           curl -sSL https://git.io/get-mo -o mo
@@ -121,17 +113,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      # install kubectl
+      - uses: actions/checkout@v1
       - uses: azure/setup-kubectl@v1
-
-      # configure kubectl
       - name: Kubectl configuration
         shell: bash
         run: |
           mkdir -p ~/.kube
           echo ${{ secrets.KUBE_CONFIG }} | base64 -d -i > ~/.kube/config
-
-      # install moustache
       - name: install moustache
         run: |
           curl -sSL https://git.io/get-mo -o mo
@@ -159,24 +147,20 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      # install kubectl
+      - uses: actions/checkout@v1
       - uses: azure/setup-kubectl@v1
-
-      # configure kubectl
       - name: Kubectl configuration
         shell: bash
         run: |
           mkdir -p ~/.kube
           echo ${{ secrets.KUBE_CONFIG }} | base64 -d -i > ~/.kube/config
-
-      # install moustache
       - name: install moustache
         run: |
           curl -sSL https://git.io/get-mo -o mo
           chmod +x mo
           sudo mv mo /usr/local/bin/
           echo "works" | mo
-
+          
       # deploy dev-ar
       - name: deploy-dev-ar
         env:
