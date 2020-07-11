@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.M3_DOCKER_PASSWORD }}
 
       # build and push docker image
-      - name: build the app
+      - name: build and push the app
         run: |
           echo $M3_VERSION
           docker build -t $M3_IMAGE:$M3_VERSION -f $M3_DOCKER_FILE .

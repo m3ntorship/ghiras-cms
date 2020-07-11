@@ -8,7 +8,7 @@ metadata:
     version: "{{{M3_VERSION}}}"
     project: "{{{M3_PROJECT}}}"
 spec:
-  replicas: { { { M3_REPLICAS } } }
+  replicas: {{{M3_REPLICAS}}}
   selector:
     matchLabels:
       application: "{{{M3_APPLICATION}}}"
@@ -71,5 +71,5 @@ spec:
                   key: MINIO_BUCKET
           ports:
             - name: web
-              containerPort: { { { M3_PORT } } }
+              containerPort: {{{M3_PORT}}}
               protocol: TCP
