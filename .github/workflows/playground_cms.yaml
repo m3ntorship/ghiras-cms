@@ -35,7 +35,7 @@ jobs:
       - name: build and push the app
         run: |
           echo $M3_VERSION
-          docker build -t $M3_IMAGE:$M3_VERSION -f $M3_DOCKER_FILE .
+          docker build --build-arg STRAPI_ADMIN_PATH=${{ secrets.M3_STRAPI_ADMIN_PATH }} -t $M3_IMAGE:$M3_VERSION -f $M3_DOCKER_FILE .
           docker push $M3_IMAGE:$M3_VERSION
   deploy_live:
     needs: build
