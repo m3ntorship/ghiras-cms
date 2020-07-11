@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{{M3_APPLICATION}}}"
+  namespace: "{{{M3_NAMESPACE}}}"
+  labels:
+    application: "{{{M3_APPLICATION}}}"
+    version: "{{{M3_VERSION}}}"
+    project: "{{{M3_PROJECT}}}"
+spec:
+  replicas: { { { M3_REPLICAS } } }
+  selector:
+    matchLabels:
+      application: "{{{M3_APPLICATION}}}"
+  template:
+    metadata:
+      labels:
+        application: "{{{M3_APPLICATION}}}"
+        version: "{{{M3_VERSION}}}"
+        project: "{{{M3_PROJECT}}}"
+    spec:
+      containers:
+        - name: "{{{M3_APPLICATION}}}"
+          image: "{{{M3_IMAGE}}}:{{{M3_VERSION}}}"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DATABASE_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: "{{{M3_STRAPI_SECRET}}}"
+                  key: DATABASE_HOST
+            - name: DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: "{{{M3_STRAPI_SECRET}}}"
+                  key: DATABASE_NAME
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: "{{{M3_STRAPI_SECRET}}}"
+                  key: DATABASE_USERNAME
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{{M3_STRAPI_SECRET}}}"
+                  key: DATABASE_PASSWORD
+            - name: STRAPI_ADMIN_PATH
+              valueFrom:
+                secretKeyRef:
+                  name: "{{{M3_STRAPI_SECRET}}}"
+                  key: STRAPI_ADMIN_PATH
+            - name: MINIO_PUBLIC_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: "{{{M3_STRAPI_SECRET}}}"
+                  key: MINIO_PUBLIC_KEY
+            - name: MINIO_PRIVATE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: "{{{M3_STRAPI_SECRET}}}"
+                  key: MINIO_PRIVATE_KEY
+            - name: MINIO_URL
+              valueFrom:
+                secretKeyRef:
+                  name: "{{{M3_STRAPI_SECRET}}}"
+                  key: MINIO_URL
+            - name: MINIO_BUCKET
+              valueFrom:
+                secretKeyRef:
+                  name: "{{{M3_STRAPI_SECRET}}}"
+                  key: MINIO_BUCKET
+          ports:
+            - name: web
+              containerPort: { { { M3_PORT } } }
+              protocol: TCP

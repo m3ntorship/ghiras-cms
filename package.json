@@ -28,7 +28,7 @@
     "strapi-plugin-email": "3.0.0-beta.20",
     "strapi-plugin-upload": "3.0.0-beta.20",
     "strapi-plugin-users-permissions": "3.0.0-beta.20",
-    "strapi-provider-upload-minio": "file:providers/strapi-upload-minio",
+    "strapi-provider-upload-m3-minio": "1.0.1",
     "strapi-utils": "3.0.0-beta.20"
   },
   "author": {
