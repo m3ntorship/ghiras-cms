@@ -13,6 +13,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     steps:
       # checkout the code commit
       - name: checkout the code
@@ -20,8 +22,10 @@ jobs:
 
       # dynamic deployment envs
       - name: set templating envs
+        id: version
         run: |
           echo ::set-env name=M3_VERSION::$(git rev-parse --short=4 ${{ github.sha }})
+          echo ::set-output name=version::$(git rev-parse --short=4 ${{ github.sha }})
 
 
       # login to docker
@@ -85,7 +89,7 @@ jobs:
           for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $TEMP_DIR/"$(basename $f)"; done
           kubectl apply -f $TEMP_DIR
       
-      # deploy play
+      # deploy play-ar
       - name: deploy-play-ar
         env:
           M3_DEPLOYMENT_PATH: deploy/cms
@@ -100,8 +104,42 @@ jobs:
           mkdir -p $TEMP_DIR
           for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $TEMP_DIR/"$(basename $f)"; done
           kubectl apply -f $TEMP_DIR
+      
+      # deploy dev
+      - name: deploy-dev
+        env:
+          M3_DEPLOYMENT_PATH: deploy/cms
+          TEMP_DIR: temp
+          M3_NAMESPACE: default
+          M3_PROJECT: ghiras
+          M3_COMPONENET: cms
+          M3_ENVIRONMENT: dev
+          M3_REPLICAS: '1'
+          M3_PORT: '1337'
+        run: |
+          mkdir -p $TEMP_DIR
+          for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $TEMP_DIR/"$(basename $f)"; done
+          kubectl apply -f $TEMP_DIR
+
+      # deploy dev-ar
+      - name: deploy-dev-ar
+        env:
+          M3_DEPLOYMENT_PATH: deploy/cms
+          TEMP_DIR: temp
+          M3_NAMESPACE: default
+          M3_PROJECT: ghiras
+          M3_COMPONENET: cms
+          M3_ENVIRONMENT: dev-ar
+          M3_REPLICAS: '1'
+          M3_PORT: '1337'
+        run: |
+          mkdir -p $TEMP_DIR
+          for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $TEMP_DIR/"$(basename $f)"; done
+          kubectl apply -f $TEMP_DIR
   test-env:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: echo $M3_VERSION
+      - env:
+          M3_VERSION: ${{needs.build.outputs.version}}
+        run: echo $M3_VERSION
