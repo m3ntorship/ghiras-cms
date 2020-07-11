@@ -41,22 +41,12 @@ jobs:
           echo $M3_VERSION
           docker build --build-arg STRAPI_ADMIN_PATH=${{ secrets.M3_STRAPI_ADMIN_PATH }} -t $M3_IMAGE:$M3_VERSION -f $M3_DOCKER_FILE .
           docker push $M3_IMAGE:$M3_VERSION
-  deploy_live:
+  deploy_play:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      # checkout the code commit
-      - name: checkout the code
-        uses: actions/checkout@v1
-
-      # dynamic deployment envs
-      - name: set templating envs
-        run: |
-          echo ::set-env name=M3_VERSION::$(git rev-parse --short=4 ${{ github.sha }})
-
       # install kubectl
-      - name: install kubectl
-        uses: azure/setup-kubectl@v1
+      - uses: azure/setup-kubectl@v1
 
       # configure kubectl
       - name: Kubectl configuration
@@ -84,11 +74,33 @@ jobs:
           M3_ENVIRONMENT: play
           M3_REPLICAS: '1'
           M3_PORT: '1337'
+          M3_VERSION: ${{needs.build.outputs.version}}
         run: |
           mkdir -p $TEMP_DIR
           for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $TEMP_DIR/"$(basename $f)"; done
           kubectl apply -f $TEMP_DIR
-      
+  deploy_play_ar:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # install kubectl
+      - uses: azure/setup-kubectl@v1
+
+      # configure kubectl
+      - name: Kubectl configuration
+        shell: bash
+        run: |
+          mkdir -p ~/.kube
+          echo ${{ secrets.KUBE_CONFIG }} | base64 -d -i > ~/.kube/config
+
+      # install moustache
+      - name: install moustache
+        run: |
+          curl -sSL https://git.io/get-mo -o mo
+          chmod +x mo
+          sudo mv mo /usr/local/bin/
+          echo "works" | mo
+
       # deploy play-ar
       - name: deploy-play-ar
         env:
@@ -100,11 +112,33 @@ jobs:
           M3_ENVIRONMENT: play-ar
           M3_REPLICAS: '1'
           M3_PORT: '1337'
+          M3_VERSION: ${{needs.build.outputs.version}}
         run: |
           mkdir -p $TEMP_DIR
           for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $TEMP_DIR/"$(basename $f)"; done
           kubectl apply -f $TEMP_DIR
-      
+  deploy_dev:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # install kubectl
+      - uses: azure/setup-kubectl@v1
+
+      # configure kubectl
+      - name: Kubectl configuration
+        shell: bash
+        run: |
+          mkdir -p ~/.kube
+          echo ${{ secrets.KUBE_CONFIG }} | base64 -d -i > ~/.kube/config
+
+      # install moustache
+      - name: install moustache
+        run: |
+          curl -sSL https://git.io/get-mo -o mo
+          chmod +x mo
+          sudo mv mo /usr/local/bin/
+          echo "works" | mo
+
       # deploy dev
       - name: deploy-dev
         env:
@@ -116,10 +150,32 @@ jobs:
           M3_ENVIRONMENT: dev
           M3_REPLICAS: '1'
           M3_PORT: '1337'
+          M3_VERSION: ${{needs.build.outputs.version}}
         run: |
           mkdir -p $TEMP_DIR
           for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $TEMP_DIR/"$(basename $f)"; done
           kubectl apply -f $TEMP_DIR
+  deploy_dev_ar:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # install kubectl
+      - uses: azure/setup-kubectl@v1
+
+      # configure kubectl
+      - name: Kubectl configuration
+        shell: bash
+        run: |
+          mkdir -p ~/.kube
+          echo ${{ secrets.KUBE_CONFIG }} | base64 -d -i > ~/.kube/config
+
+      # install moustache
+      - name: install moustache
+        run: |
+          curl -sSL https://git.io/get-mo -o mo
+          chmod +x mo
+          sudo mv mo /usr/local/bin/
+          echo "works" | mo
 
       # deploy dev-ar
       - name: deploy-dev-ar
@@ -132,10 +188,12 @@ jobs:
           M3_ENVIRONMENT: dev-ar
           M3_REPLICAS: '1'
           M3_PORT: '1337'
+          M3_VERSION: ${{needs.build.outputs.version}}
         run: |
           mkdir -p $TEMP_DIR
           for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $TEMP_DIR/"$(basename $f)"; done
           kubectl apply -f $TEMP_DIR
+
   test-env:
     needs: build
     runs-on: ubuntu-latest
