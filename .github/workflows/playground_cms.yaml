@@ -78,7 +78,7 @@ jobs:
           M3_APPLICATION: ghiras-cms-play-ar
           M3_REPLICAS: '2'
           M3_PORT: '1337'
-          M3_HOST: ghiras-cms-play-ar
+          M3_HOST: ghiras-cms-play-ar.m3ntorship.net
           M3_STRAPI_SECRET: 'ghiras-cms-play-ar'
         run: |
           mkdir -p $TEMP_DIR
