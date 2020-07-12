@@ -1,7 +1,8 @@
 FROM strapi/base
 
+ARG STRAPI_ADMIN_PATH
+ENV STRAPI_ADMIN_PATH=$STRAPI_ADMIN_PATH
 WORKDIR /m3-strapi
-
 COPY ./package.json ./
 COPY ./yarn.lock ./
 
