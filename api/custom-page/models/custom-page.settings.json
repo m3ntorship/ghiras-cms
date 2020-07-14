@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "custom_pages",
+  "info": {
+    "name": "custom-page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    }
+  }
+}
