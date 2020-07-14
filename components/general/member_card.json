@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_general_member_cards",
+  "info": {
+    "name": "member_card",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "member_name": {
+      "type": "string",
+      "required": true
+    },
+    "job_title": {
+      "type": "string"
+    },
+    "member_role": {
+      "type": "string",
+      "required": true
+    },
+    "age": {
+      "type": "integer"
+    },
+    "social_media_accounts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.social-icon"
+    },
+    "member_img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "priority": {
+      "type": "integer",
+      "default": 0,
+      "unique": true
+    }
+  }
+}
