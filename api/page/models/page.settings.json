@@ -16,12 +16,14 @@
     "Banner": {
       "type": "component",
       "repeatable": false,
-      "component": "general.inner-page-banner"
+      "component": "general.inner-page-banner",
+      "required": true
     },
     "link": {
       "type": "component",
       "repeatable": false,
-      "component": "general.link"
+      "component": "general.link",
+      "required": true
     },
     "show_in_navigation": {
       "type": "boolean",
@@ -36,7 +38,8 @@
     "secondary_banner": {
       "type": "component",
       "repeatable": false,
-      "component": "general.inner-page-secondary-banner"
+      "component": "general.inner-page-secondary-banner",
+      "required": true
     }
   }
 }

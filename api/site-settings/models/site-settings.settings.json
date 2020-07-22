@@ -10,27 +10,27 @@
   },
   "attributes": {
     "enable_english_site": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     },
     "comming_soon_second_message": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "comming_soon_third_message": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "comming_soon_image": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "comming_soon_main_message": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

@@ -12,27 +12,27 @@
     "member_img": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "member_name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "member_role": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "social_icons": {
       "type": "component",
       "repeatable": true,
-      "component": "general.social-icon"
+      "component": "general.social-icon",
+      "required": true
     },
     "priority": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     }
   }
 }

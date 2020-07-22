@@ -12,31 +12,31 @@
     "Heading": {
       "type": "component",
       "repeatable": false,
-      "component": "general.heading"
+      "component": "general.heading",
+      "required": true
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "WelcomeActions": {
       "type": "component",
       "repeatable": true,
-      "component": "general.welcome-section-action"
+      "component": "general.welcome-section-action",
+      "required": true
     },
     "image": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "link": {
       "type": "component",
       "repeatable": false,
-      "component": "general.link"
+      "component": "general.link",
+      "required": true
     }
   }
 }

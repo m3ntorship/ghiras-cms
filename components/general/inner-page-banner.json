@@ -11,14 +11,15 @@
       "required": true
     },
     "sub_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image_bg": {
       "collection": "file",
       "via": "related",
-      "allowedTypes": ["images", "files", "videos"],
+      "allowedTypes": ["files", "images", "videos"],
       "plugin": "upload",
-      "required": false
+      "required": true
     }
   }
 }

@@ -11,25 +11,31 @@
       "via": "related",
       "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "raised": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "Goal": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "action_button_text": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "action_button_url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "is_featured": {
       "type": "boolean",
