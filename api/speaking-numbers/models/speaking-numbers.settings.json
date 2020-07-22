@@ -10,23 +10,21 @@
   },
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image_background": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "speaking_numbers": {
       "type": "component",
       "repeatable": true,
-      "component": "general.speaking-number"
+      "component": "general.speaking-number",
+      "required": true
     }
   }
 }

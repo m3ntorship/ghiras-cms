@@ -10,38 +10,44 @@
   },
   "attributes": {
     "About_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "about_description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "about_button": {
       "type": "component",
       "repeatable": false,
-      "component": "general.link"
+      "component": "general.link",
+      "required": true
     },
     "links": {
       "type": "component",
       "repeatable": true,
-      "component": "general.link"
+      "component": "general.link",
+      "required": true
     },
     "newsletter_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "newsletter_description": {
-      "type": "string"
-    },
-    "articles": {
-      "collection": "article"
+      "type": "string",
+      "required": true
     },
     "Disclaimer": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "news_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "links_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

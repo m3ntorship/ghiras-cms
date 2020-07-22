@@ -22,12 +22,14 @@
     "email": {
       "type": "component",
       "repeatable": false,
-      "component": "general.contact-item"
+      "component": "general.contact-item",
+      "required": true
     },
     "phone": {
       "type": "component",
       "repeatable": false,
-      "component": "general.contact-item"
+      "component": "general.contact-item",
+      "required": true
     }
   }
 }

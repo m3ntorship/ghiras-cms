@@ -12,15 +12,18 @@
     "Heading": {
       "type": "component",
       "repeatable": true,
-      "component": "general.heading"
+      "component": "general.heading",
+      "required": true
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "upcoming_events": {
       "type": "component",
       "repeatable": true,
-      "component": "general.upcoming-event"
+      "component": "general.upcoming-event",
+      "required": true
     }
   }
 }
