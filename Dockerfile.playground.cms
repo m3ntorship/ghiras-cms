@@ -12,7 +12,6 @@ COPY ./api ./api
 COPY ./components ./components
 COPY ./config ./config
 COPY ./extensions ./extensions
-COPY ./providers ./providers
 COPY ./public ./public
 COPY ./favicon.ico ./favicon.ico
 
