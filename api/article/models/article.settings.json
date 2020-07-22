@@ -45,14 +45,20 @@
       "type": "richtext",
       "required": true
     },
-    "author": {
-      "plugin": "users-permissions",
-      "model": "user",
-      "required": true
-    },
     "is_in_home": {
       "type": "boolean",
+      "default": false,
       "required": true
+    },
+    "is_in_footer": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true,
+      "default": "admin"
     }
   }
 }
