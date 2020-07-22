@@ -10,10 +10,12 @@
   },
   "attributes": {
     "fontawesome_icons": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

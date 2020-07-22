@@ -10,21 +10,19 @@
   },
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "sub_title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "icon": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "show_in_navbar": {
       "type": "boolean",
@@ -32,7 +30,7 @@
     },
     "url": {
       "type": "string",
-      "required": false
+      "required": true
     }
   }
 }

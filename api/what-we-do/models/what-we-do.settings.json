@@ -10,18 +10,22 @@
   },
   "attributes": {
     "title_primary": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "title_complementary": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "how_we_work_cards": {
       "type": "component",
       "repeatable": true,
-      "component": "general.card"
+      "component": "general.card",
+      "required": true
     }
   }
 }

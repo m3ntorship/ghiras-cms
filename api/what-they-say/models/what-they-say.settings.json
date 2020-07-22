@@ -12,24 +12,19 @@
     "Heading": {
       "type": "component",
       "repeatable": false,
-      "component": "general.heading"
+      "component": "general.heading",
+      "required": true
     },
     "Description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "background": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
-      "required": false
-    },
-    "testimonials": {
-      "collection": "testimonial"
+      "required": true
     }
   }
 }

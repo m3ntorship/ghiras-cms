@@ -10,38 +10,34 @@
   },
   "attributes": {
     "text_primary": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "text_complementary": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "button_text": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "button_url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image_top": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "image_background": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+      "allowedTypes": ["images", "files", "videos"],
       "plugin": "upload",
-      "required": false
+      "required": true
     }
   }
 }

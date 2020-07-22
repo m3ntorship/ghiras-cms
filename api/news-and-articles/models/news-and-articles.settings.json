@@ -9,21 +9,21 @@
     "timestamps": true
   },
   "attributes": {
-    "home_articles": {
-      "collection": "article"
-    },
     "heading": {
       "type": "component",
       "repeatable": false,
-      "component": "general.heading"
+      "component": "general.heading",
+      "required": true
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "link": {
       "type": "component",
       "repeatable": false,
-      "component": "general.link"
+      "component": "general.link",
+      "required": true
     }
   }
 }

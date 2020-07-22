@@ -10,15 +10,18 @@
   },
   "attributes": {
     "title_primary": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "title_complementary": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Cards": {
       "type": "component",
       "repeatable": true,
-      "component": "general.card"
+      "component": "general.card",
+      "required": true
     }
   }
 }

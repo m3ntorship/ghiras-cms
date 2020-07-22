@@ -30,22 +30,14 @@
     "thumbnail": {
       "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "files",
-        "images",
-        "videos"
-      ],
+      "allowedTypes": ["files", "images", "videos"],
       "plugin": "upload",
       "required": true
     },
     "image_main": {
       "collection": "file",
       "via": "related",
-      "allowedTypes": [
-        "files",
-        "images",
-        "videos"
-      ],
+      "allowedTypes": ["files", "images", "videos"],
       "plugin": "upload",
       "required": true
     },
@@ -53,12 +45,20 @@
       "type": "richtext",
       "required": true
     },
-    "author": {
-      "plugin": "users-permissions",
-      "model": "user"
-    },
     "is_in_home": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "is_in_footer": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "author": {
+      "type": "string",
+      "required": true,
+      "default": "admin"
     }
   }
 }
