@@ -5,6 +5,22 @@ on:
   push:
     branches:
       - develop
+M3_ORGANIZATION: ${{github.event.organization.login}}
+  M3_REPOSITORY: ${{github.event.repository.name}}
+  M3_PROJECT: ghiras
+  M3_COMPONENET: cms
+  M3_ENVIRONMENT: dev
+  M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-dev'
+  M3_DEPLOYMENT_PATH: deploy/cms
+  M3_TEMP_DIR: temp
+  M3_REPLICAS: '1'
+  # posts service
+  M3_DOCKER_FILE: Dockerfile
+  M3_IMAGE: m3ntorshipci/ghiras-cms
+  M3_PORT: '1337'
+  M3_PORT_AR: '1338'
+  M3_MEMORY: '200Mi'
+  M3_CPU: '50m'
 jobs:
   
   deploy_dev:
