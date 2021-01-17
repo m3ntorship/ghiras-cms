@@ -72,6 +72,9 @@ jobs:
           # mkdir -p $M3_TEMP_SECRETS_DIR
           # for f in $(find $M3_DEPLOYMENT_PATH/$M3_ENCRYPTED_SECRETS_DIR -maxdepth 1 -type f); do gpg --quiet --batch --yes --decrypt --passphrase="$M3_ENCRYPTION_PHRASE" "$f" > "$M3_TEMP_SECRETS_DIR/$(basename -s .gpg $f)"; done
 
+          ls -al $M3_TEMP_SECRETS_DIR
+          cat ghiras-cms-dev-temp.env
+
           # kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT-temp --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-dev-temp.env -n $M3_NAMESPACE --dry-run=client
           # kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT-temp --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-dev-temp.env -n $M3_NAMESPACE --dry-run=client > $M3_TEMP_DIR/ghiras-cms-dev-temp.yaml
           
