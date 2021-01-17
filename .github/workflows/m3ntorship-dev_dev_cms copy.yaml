@@ -71,7 +71,7 @@ jobs:
 
 
           # for f in $(find $M3_DEPLOYMENT_PATH/$M3_ENCRYPTED_SECRETS_DIR -maxdepth 1 -type f); do gpg --quiet --batch --yes --decrypt --passphrase="$M3_ENCRYPTION_PHRASE" "$f" > "$M3_TEMP_SECRETS_DIR/$(basename -s .gpg $f)"; done
-
+          cd ../../../
           ls -al $M3_TEMP_SECRETS_DIR
           cat ghiras-cms-dev-temp.env
 
