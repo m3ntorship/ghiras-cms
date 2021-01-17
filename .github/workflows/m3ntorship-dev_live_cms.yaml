@@ -1,23 +1,23 @@
-name: deploy ghiras-cms dev to m3ntorship-dev cluster
+name: deploy ghiras-cms live to m3ntorship-dev cluster
 
 # trigger
 on:
   push:
     branches:
-      - develop
+      - master
 env:
   # COMMON deployment envs
   M3_ORGANIZATION: ${{github.event.organization.login}}
   M3_REPOSITORY: ${{github.event.repository.name}}
   M3_PROJECT: ghiras
   M3_COMPONENET: cms
-  M3_ENVIRONMENT: dev
+  M3_ENVIRONMENT: live
   M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-dev'
   M3_DEPLOYMENT_PATH: deploy/cms
   M3_TEMP_DIR: temp
   M3_TEMP_SECRETS_DIR: temp-secrets
   M3_ENCRYPTION_PHRASE: ${{secrets.M3NTORSHIP_ENCRYPTION_PHRASE}}
-  M3_ENCRYPTED_SECRETS_DIR: secrets/dev
+  M3_ENCRYPTED_SECRETS_DIR: secrets/live
   M3_REPLICAS: '1'
   M3_DOCKER_FILE: Dockerfile
   M3_IMAGE: m3ntorshipci/ghiras-cms
@@ -37,7 +37,7 @@ jobs:
       - name: set templating envs
         id: version
         run: |
-          echo ::set-output name=version::dev-$(git rev-parse --short=4 ${{ github.sha }})
+          echo ::set-output name=version::master-$(git rev-parse --short=4 ${{ github.sha }})
   test-env:
     needs: prepare
     runs-on: ubuntu-latest
@@ -99,8 +99,8 @@ jobs:
 
           for f in $(find $M3_DEPLOYMENT_PATH/$M3_ENCRYPTED_SECRETS_DIR -maxdepth 1 -type f); do gpg --quiet --batch --yes --decrypt --passphrase="$M3_ENCRYPTION_PHRASE" "$f" > "$M3_TEMP_SECRETS_DIR/$(basename -s .gpg $f)"; done
 
-          kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-dev.env -n $M3_NAMESPACE --dry-run=client -o yaml > $M3_TEMP_DIR/ghiras-cms-dev.yaml
-          kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT-ar --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-dev-ar.env -n $M3_NAMESPACE --dry-run=client -o yaml > $M3_TEMP_DIR/ghiras-cms-dev-ar.yaml
+          kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-live.env -n $M3_NAMESPACE --dry-run=client -o yaml > $M3_TEMP_DIR/ghiras-cms-dev.yaml
+          kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT-ar --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-live-ar.env -n $M3_NAMESPACE --dry-run=client -o yaml > $M3_TEMP_DIR/ghiras-cms-dev-ar.yaml
           
           #create regular k8s resources
       - name: bind-k8s-template
@@ -128,5 +128,5 @@ jobs:
           token: ${{secrets.DOCKER_HUB_M3NTORSHIPCI_TOKEN}}
           user: 'm3ntorshipci'
           repos: '["ghiras-cms"]'
-          keep-last: 5
+          keep-last: 3
           substrings: '["dev-"]'
