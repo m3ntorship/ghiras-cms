@@ -1,44 +1,35 @@
 {
-  "name": "charity-cms",
+  "name": "strapi-playground",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
-    "develop:docker": "docker-compose up -d",
-    "develop:docker:clean": "docker-compose down --rmi=all",
-    "develop:docker:stop": "docker-compose stop",
-    "develop:docker:restart": "docker rm -f charity-cms_charity-cms_1",
-    "postdevelop:docker:restart": "yarn develop:docker",
-    "predevelop": "yarn build",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
   "devDependencies": {},
   "dependencies": {
-    "dropbox": "^4.0.30",
-    "isomorphic-fetch": "^2.2.1",
-    "mongodb": "^3.5.9",
-    "strapi": "3.0.0-beta.20",
-    "strapi-admin": "3.0.0-beta.20",
-    "strapi-connector-mongoose": "3.0.0-beta.20",
-    "strapi-plugin-content-manager": "3.0.0-beta.20",
-    "strapi-plugin-content-type-builder": "3.0.0-beta.20",
-    "strapi-plugin-email": "3.0.0-beta.20",
-    "strapi-plugin-upload": "3.0.0-beta.20",
-    "strapi-plugin-users-permissions": "3.0.0-beta.20",
-    "strapi-provider-upload-m3-minio": "1.0.1",
-    "strapi-utils": "3.0.0-beta.20"
+    "strapi": "3.4.3",
+    "strapi-admin": "3.4.3",
+    "strapi-connector-mongoose": "3.4.3",
+    "strapi-plugin-content-manager": "3.4.3",
+    "strapi-plugin-content-type-builder": "3.4.3",
+    "strapi-plugin-email": "3.4.3",
+    "strapi-plugin-upload": "3.4.3",
+    "strapi-plugin-users-permissions": "3.4.3",
+    "strapi-provider-upload-m3-minio": "^1.0.2",
+    "strapi-utils": "3.4.3"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "0ef727a6-04a8-471a-9956-2ae0f2edc8b5"
+    "uuid": "e4dd93dc-4288-45f1-9878-8d9b174db9a9"
   },
   "engines": {
-    "node": ">=10.0.0",
+    "node": ">=10.16.0 <=14.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"

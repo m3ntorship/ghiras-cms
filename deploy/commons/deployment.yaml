@@ -4,6 +4,8 @@ metadata:
   name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
   namespace: '{{{M3_NAMESPACE}}}'
   labels:
+    organization: '{{{M3_ORGANIZATION}}}'
+    repository: '{{{M3_REPOSITORY}}}'
     project: '{{{M3_PROJECT}}}'
     environment: '{{{M3_ENVIRONMENT}}}'
     componenet: '{{{M3_COMPONENET}}}'
@@ -17,6 +19,8 @@ spec:
   template:
     metadata:
       labels:
+        organization: '{{{M3_ORGANIZATION}}}'
+        repository: '{{{M3_REPOSITORY}}}'
         project: '{{{M3_PROJECT}}}'
         environment: '{{{M3_ENVIRONMENT}}}'
         componenet: '{{{M3_COMPONENET}}}'
@@ -25,54 +29,25 @@ spec:
       containers:
         - name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
           image: '{{{M3_IMAGE}}}:{{{M3_VERSION}}}'
-          imagePullPolicy: IfNotPresent
+          envFrom:
+            - secretRef:
+                name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
           env:
-            - name: DATABASE_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
-                  key: DATABASE_HOST
-            - name: DATABASE_NAME
-              valueFrom:
-                secretKeyRef:
-                  name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
-                  key: DATABASE_NAME
-            - name: DATABASE_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
-                  key: DATABASE_USERNAME
-            - name: DATABASE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
-                  key: DATABASE_PASSWORD
-            - name: STRAPI_ADMIN_PATH
-              valueFrom:
-                secretKeyRef:
-                  name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
-                  key: STRAPI_ADMIN_PATH
-            - name: MINIO_PUBLIC_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
-                  key: MINIO_PUBLIC_KEY
-            - name: MINIO_PRIVATE_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
-                  key: MINIO_PRIVATE_KEY
-            - name: MINIO_URL
-              valueFrom:
-                secretKeyRef:
-                  name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
-                  key: MINIO_URL
-            - name: MINIO_BUCKET
-              valueFrom:
-                secretKeyRef:
-                  name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
-                  key: MINIO_BUCKET
+            - name: PORT
+              value: '{{{M3_PORT}}}'
           ports:
             - name: web
               containerPort: {{{M3_PORT}}}
+              protocol: TCP
+        - name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}-ar'
+          image: '{{{M3_IMAGE}}}:{{{M3_VERSION}}}'
+          envFrom:
+            - secretRef:
+                name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}-ar'
+          env:
+            - name: PORT
+              value: '{{{M3_PORT_AR}}}'
+          ports:
+            - name: web-ar
+              containerPort: {{{M3_PORT_AR}}}
               protocol: TCP

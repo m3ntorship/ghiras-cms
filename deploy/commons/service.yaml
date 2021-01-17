@@ -4,6 +4,8 @@ metadata:
   name: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
   namespace: '{{{M3_NAMESPACE}}}'
   labels:
+    organization: '{{{M3_ORGANIZATION}}}'
+    repository: '{{{M3_REPOSITORY}}}'
     project: '{{{M3_PROJECT}}}'
     environment: '{{{M3_ENVIRONMENT}}}'
     componenet: '{{{M3_COMPONENET}}}'
@@ -13,7 +15,11 @@ spec:
   selector:
     application: '{{{M3_PROJECT}}}-{{{M3_COMPONENET}}}-{{{M3_ENVIRONMENT}}}'
   ports:
-    - protocol: TCP
+    - name: web
+      protocol: TCP
       port: 80
       targetPort: {{{M3_PORT}}}
----
+    - name: web-ar
+      protocol: TCP
+      port: 81
+      targetPort: {{{M3_PORT_AR}}}
