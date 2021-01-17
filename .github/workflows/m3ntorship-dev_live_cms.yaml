@@ -72,7 +72,7 @@ jobs:
       - prepare
 
     runs-on: ubuntu-latest
-    env:dev
+    env:
       M3_VERSION: ${{ needs.prepare.outputs.version }}
     steps:
       - uses: actions/checkout@v2
