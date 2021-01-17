@@ -64,20 +64,24 @@ jobs:
           M3_ENCRYPTED_SECRETS_DIR: secrets
           
         run: |
-          mkdir -p $M3_TEMP_SECRETS_DIR
-          for f in $(find $M3_DEPLOYMENT_PATH/$M3_ENCRYPTED_SECRETS_DIR -maxdepth 1 -type f); do gpg --quiet --batch --yes --decrypt --passphrase="$M3_ENCRYPTION_PHRASE" "$f" > "$M3_TEMP_SECRETS_DIR/$(basename -s .gpg $f)"; done
+          echo $M3_ENCRYPTION_PHRASE
+          gpg --quiet --batch --yes --decrypt --passphrase="$M3_ENCRYPTION_PHRASE" ghiras-cms-dev-temp.env.gpg
 
-          kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT-temp --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-dev-temp.env -n $M3_NAMESPACE --dry-run=client
-          kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT-temp --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-dev-temp.env -n $M3_NAMESPACE --dry-run=client > $M3_TEMP_DIR/ghiras-cms-dev-temp.yaml
+
+          # mkdir -p $M3_TEMP_SECRETS_DIR
+          # for f in $(find $M3_DEPLOYMENT_PATH/$M3_ENCRYPTED_SECRETS_DIR -maxdepth 1 -type f); do gpg --quiet --batch --yes --decrypt --passphrase="$M3_ENCRYPTION_PHRASE" "$f" > "$M3_TEMP_SECRETS_DIR/$(basename -s .gpg $f)"; done
+
+          # kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT-temp --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-dev-temp.env -n $M3_NAMESPACE --dry-run=client
+          # kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT-temp --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-dev-temp.env -n $M3_NAMESPACE --dry-run=client > $M3_TEMP_DIR/ghiras-cms-dev-temp.yaml
           
-      # deploy dev
-      - name: deploy-dev
-        run: |
-          ls -al $M3_TEMP_DIR
-          cat $M3_TEMP_DIR/ghiras-cms-dev-temp.yaml
-          for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $M3_TEMP_DIR/"$(basename $f)"; done
-          kubectl apply -f $M3_TEMP_DIR
+      # # deploy dev
+      # - name: deploy-dev
+      #   run: |
+      #     ls -al $M3_TEMP_DIR
+      #     cat $M3_TEMP_DIR/ghiras-cms-dev-temp.yaml
+      #     for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $M3_TEMP_DIR/"$(basename $f)"; done
+      #     kubectl apply -f $M3_TEMP_DIR
       
-      #cleanup temp directories
-      - name: clean-temp-files
-        run: rm -rf $M3_TEMP_DIR $M3_TEMP_SECRETS_DIR
+      # #cleanup temp directories
+      # - name: clean-temp-files
+      #   run: rm -rf $M3_TEMP_DIR $M3_TEMP_SECRETS_DIR
