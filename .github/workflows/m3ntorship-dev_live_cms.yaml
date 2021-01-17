@@ -12,7 +12,7 @@ env:
   M3_PROJECT: ghiras
   M3_COMPONENET: cms
   M3_ENVIRONMENT: live
-  M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-dev'
+  M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-live'
   M3_DEPLOYMENT_PATH: deploy/cms
   M3_TEMP_DIR: temp
   M3_TEMP_SECRETS_DIR: temp-secrets
