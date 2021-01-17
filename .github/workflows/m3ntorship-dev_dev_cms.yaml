@@ -4,7 +4,7 @@ name: deploy ghiras-cms to m3ntorship-dev cluster
 on:
   push:
     branches:
-      - xdevelop
+      - develop
 env:
   # COMMON deployment envs
   M3_ORGANIZATION: ${{github.event.organization.login}}
@@ -15,6 +15,9 @@ env:
   M3_NAMESPACE: '${{github.event.organization.login}}-${{github.event.repository.name}}-dev'
   M3_DEPLOYMENT_PATH: deploy/cms
   M3_TEMP_DIR: temp
+  M3_TEMP_SECRETS_DIR: temp-secrets
+  M3_ENCRYPTION_PHRASE: ${{secrets.M3NTORSHIP_ENCRYPTION_PHRASE}}
+  M3_ENCRYPTED_SECRETS_DIR: secrets
   M3_REPLICAS: '1'
   # posts service
   M3_DOCKER_FILE: Dockerfile
@@ -89,26 +92,25 @@ jobs:
       - name: deployment-preparation
         run: |
           echo $M3_NAMESPACE
-          mkdir -p $M3_TEMP_DIR
-          
-      # decrypt secrets
-      - name: decrypt-and-create-secrets
-        env:
-          M3_TEMP_SECRETS_DIR: temp-secrets
-          M3_ENCRYPTION_PHRASE: ${{secrets.M3NTORSHIP_ENCRYPTION_PHRASE}}
-          M3_ENCRYPTED_SECRETS_DIR: secrets
-          
+          mkdir -p $M3_TEMP_SECRETS_DIR $M3_TEMP_DIR
+      
+      # decrypt and create secrets k8s definitions/resources
+      - name: decrypt-and-create-secrets          
         run: |
-          mkdir -p $M3_TEMP_SECRETS_DIR
+
           for f in $(find $M3_DEPLOYMENT_PATH/$M3_ENCRYPTED_SECRETS_DIR -maxdepth 1 -type f); do gpg --quiet --batch --yes --decrypt --passphrase="$M3NTORSHIP_ENCRYPTION_PHRASE" "$f" > "$M3_TEMP_SECRETS_DIR/$(basename -s .gpg $f)"; done
 
           kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-dev.env -n $M3_NAMESPACE --dry-run=client -o yaml > $M3_TEMP_DIR/ghiras-cms-dev.yaml
           kubectl create secret generic $M3_PROJECT-$M3_COMPONENET-$M3_ENVIRONMENT-ar --from-env-file=$M3_TEMP_SECRETS_DIR/ghiras-cms-dev-ar.env -n $M3_NAMESPACE --dry-run=client -o yaml > $M3_TEMP_DIR/ghiras-cms-dev-ar.yaml
           
-      # deploy dev
-      - name: deploy-dev
+          #create regular k8s resources
+      - name: bind-k8s-template
         run: |
           for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $M3_TEMP_DIR/"$(basename $f)"; done
+
+      # deploy everything
+      - name: deploy
+        run: |
           kubectl apply -f $M3_TEMP_DIR
       
       #cleanup temp directories
