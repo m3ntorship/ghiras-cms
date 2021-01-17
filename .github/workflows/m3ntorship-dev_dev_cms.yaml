@@ -129,5 +129,5 @@ jobs:
           token: ${{secrets.DOCKER_HUB_M3NTORSHIPCI_TOKEN}}
           user: 'm3ntorshipci'
           repos: '["ghiras-cms"]'
-          keep-last: 10
+          keep-last: 3
           substrings: '["dev-"]'
