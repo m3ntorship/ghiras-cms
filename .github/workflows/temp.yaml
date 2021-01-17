@@ -37,6 +37,7 @@ jobs:
         id: version
         run: |          
           echo "M3_VERSION=dev-$(git rev-parse --short=4 ${{ github.sha }})" >> $GITHUB_ENV
+          echo dev-$(git rev-parse --short=4 ${{ github.sha }})
   test:
     needs: prepare
     runs-on: ubuntu-latest
