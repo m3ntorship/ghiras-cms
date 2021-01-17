@@ -1,12 +1,4 @@
 module.exports = ({ env }) => {
-
-console.log('---->',env('DATABASE_HOST'))
-console.log('---->',env('DATABASE_SRV'))
-console.log('---->',env('DATABASE_PORT'))
-console.log('---->',env('DATABASE_NAME'))
-console.log('---->',env('DATABASE_USERNAME'))
-console.log('---->',env('DATABASE_PASSWORD'))
-
   return {
     defaultConnection: 'default',
     connections: {
