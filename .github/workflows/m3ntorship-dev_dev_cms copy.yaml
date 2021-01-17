@@ -17,6 +17,7 @@ jobs:
       M3_PROJECT: ghiras
       M3_COMPONENET: cms
       M3_ENVIRONMENT: dev
+      M3_ORGANIZATION: ayoub
 
     steps:
       - uses: actions/checkout@v2
@@ -54,6 +55,8 @@ jobs:
       # deploy dev
       - name: deploy-dev
         run: |
+          ls -al $M3_TEMP_DIR
+          cat $M3_TEMP_DIR/ghiras-cms-dev-temp.yaml
           for f in $M3_DEPLOYMENT_PATH/apply/*; do mo -u "$f" > $M3_TEMP_DIR/"$(basename $f)"; done
           kubectl apply -f $M3_TEMP_DIR
       
