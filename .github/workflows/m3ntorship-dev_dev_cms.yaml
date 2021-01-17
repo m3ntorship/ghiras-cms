@@ -4,7 +4,7 @@ name: deploy ghiras-cms to m3ntorship-dev cluster
 on:
   push:
     branches:
-      - develop
+      - xdevelop
 env:
   # COMMON deployment envs
   M3_ORGANIZATION: ${{github.event.organization.login}}
